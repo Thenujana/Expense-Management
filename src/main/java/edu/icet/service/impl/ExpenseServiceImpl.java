@@ -39,17 +39,22 @@ repository.deleteById(id);
     }
 
     @Override
-    public void updateExpense(Long id) {
-
+    public void updateExpense(ExpenseDto expenseDto) {
+repository.save(mapper.map(expenseDto,ExpenseEntity.class));
     }
 
     @Override
     public ExpenseDto searchById(Long id) {
-        return null;
+        return mapper.map(repository.findById(id),ExpenseDto.class);
     }
 
     @Override
     public List<ExpenseDto> findByExpenseType(String expenseType) {
-        return List.of();
+       List<ExpenseEntity>byType=repository.findByExpenseType(expenseType);
+       ArrayList<ExpenseDto>expenseDtoArrayList=new ArrayList<>();
+       byType.forEach(ExpenseEntity ->{
+           expenseDtoArrayList.add(mapper.map(ExpenseEntity,ExpenseDto.class));
+       });
+       return expenseDtoArrayList;
     }
 }

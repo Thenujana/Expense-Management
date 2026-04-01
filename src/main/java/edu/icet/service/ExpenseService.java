@@ -8,7 +8,7 @@ public interface ExpenseService {
     void addExpense(ExpenseDto expenseDto);
     List<ExpenseDto> getAll();
     void deleteExpense(Long id);
-    void updateExpense(Long id);
+    void updateExpense(ExpenseDto expenseDto);
     ExpenseDto searchById(Long id);
     List<ExpenseDto>findByExpenseType(String expenseType);
 
