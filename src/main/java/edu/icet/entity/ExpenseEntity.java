@@ -17,4 +17,6 @@ public class ExpenseEntity {
     @Column(nullable = false)
     private double costGbp;
     private String description;
+    @Column(nullable = false)
+    private String expenseType;
 }

@@ -10,6 +10,6 @@ public interface ExpenseService {
     void deleteExpense(Long id);
     void updateExpense(Long id);
     ExpenseDto searchById(Long id);
-    List<ExpenseDto>searchByExpenseType(String expenseType);
+    List<ExpenseDto>findByExpenseType(String expenseType);
 
 }
